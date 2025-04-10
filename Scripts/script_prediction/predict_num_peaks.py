@@ -9,6 +9,7 @@ from tqdm import tqdm
 import os
 import time
 
+
 def predict(config, config_model, mc_sam):
 
     model_name = config['model']

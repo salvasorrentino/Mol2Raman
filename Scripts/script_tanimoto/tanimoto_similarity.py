@@ -6,11 +6,9 @@ from rdkit.Chem import rdFingerprintGenerator
 
 fingerprint = 'morgan'
 
-# read and Conconate the csv's
 df_1 = pd.read_pickle('data/raw/dtf_data_smile_no_dup_no_conv.pickle')
 df_1 = df_1.drop_duplicates(['SMILE'])
-dtf_test = pd.read_parquet('data/predictions/pred_spectra_predictions_ch_1900_3500_feat_numpeak_daylight_morgan'
-                            '_loss_8651.parquet')
+dtf_test = pd.read_parquet('data/predictions/pred_spectra_predictions_ch_1900_3500.parquet')
 lst_smile_test = dtf_test.smile.tolist()
 
 # proof and make a list of SMILES

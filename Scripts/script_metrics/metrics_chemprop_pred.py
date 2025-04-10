@@ -15,8 +15,6 @@ result_df = metrics_raman_peaks(result_df)
 
 result_df = metrics_spectra(result_df, conv, leng, true_col='RAMAN_SPECTRUM')
 
-# result_df.to_pickle(r'data/results/chemprop_ir_their_model_their_computed_mol.pickle')
-
 
 
 

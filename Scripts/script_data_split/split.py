@@ -73,7 +73,6 @@ def run_split(full_df, config, int_inter):
 def add_peak_number(dtf_in, type_pred, **kwargs):
     dtf_out = dtf_in.copy()
 
-
     dtf_out['RAMAN_PEAK_NUM_DOWN'] = dtf_out['RAMAN_SPECTRUM_DOWN'].apply(lambda x: len([c for c in x if c > 1e-6]))
     dtf_out['RAMAN_PEAK_NUM_UP'] = dtf_out['RAMAN_SPECTRUM_UP'].apply(lambda x: len([c for c in x if c > 1e-6]))
 

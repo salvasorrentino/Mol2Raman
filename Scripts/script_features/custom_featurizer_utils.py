@@ -11,11 +11,6 @@ DEFAULT_ATOM_TYPE_SET = [
     "N",
     "O",
     "F",
-    #"P",
-    #"S",
-    #"Cl",
-    #"Br",
-    #"I",
 ]
 DEFAULT_HYBRIDIZATION_SET = ["SP", "SP2", "SP3"]
 DEFAULT_TOTAL_NUM_Hs_SET = [0, 1, 2, 3, 4]

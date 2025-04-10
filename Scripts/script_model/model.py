@@ -6,7 +6,7 @@ from torch_geometric.nn import TransformerConv, TopKPooling, GINEConv
 from torch_geometric.nn import global_mean_pool as gap, global_max_pool as gmp, global_add_pool
 
 torch.manual_seed(42)
-#
+
 
 class GNN(torch.nn.Module):
     def __init__(self, 

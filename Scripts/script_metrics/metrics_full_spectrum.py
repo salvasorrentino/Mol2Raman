@@ -28,8 +28,6 @@ def process_arrays(df1, df2, col1, col2, new_column):
     return df1
 
 
-model = 'mol2raman'
-
 gamma = 2.5
 kernel_size = 600
 lorentzian_kernel = generate_lorentzian_kernel(kernel_size, gamma)
@@ -37,11 +35,8 @@ leng = list(range(501, 3500, 2))
 conv = make_conv_matrix(std_dev=10, frequencies=leng)
 
 # Load Dataframe number of peaks predicted and raman spectrum predicted, for lower and higher spectra
-df_down = pd.read_parquet(r'data/predictions/pred_spectra_predictions_fingerprint_500_2100_feat_numpeak_'
-                          r'daylight_morgan_loss_8651.parquet')
-df_up = pd.read_parquet(r'data/predictions/pred_spectra_predictions_ch_1900_3500_feat_numpeak_'
-                        r'daylight_morgan_loss_8651.parquet')
-
+df_down = pd.read_parquet(r'data/predictions/pred_spectra_predictions_fingerprint_500_2100.parquet')
+df_up = pd.read_parquet(r'data/predictions/pred_spectra_predictions_ch_1900_3500.parquet')
 
 n_peak_down = pd.read_pickle(r'data/predictions/pred_pred_num_peak_down.pickle')
 n_peak_down = n_peak_down['test'].rename(columns={'TRUE_NUM_PEAK': 'raman_true_num_peak_down'})
@@ -85,6 +80,3 @@ result_df['RAMAN_SPECTRUM_CONV'] = result_df.apply(lambda row: convolve_with_lor
 
 result_df = metrics_raman_peaks(result_df)
 result_df = metrics_spectra(result_df, conv=conv, leng=leng)
-
-# Optional line to save the full spectrum after the postprocessing
-result_df.to_pickle(fr'data/results/res_{model}_full_spectrum.pickle')

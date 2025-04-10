@@ -16,7 +16,8 @@ class EarlyStopping:
 
         if (validation_loss - train_loss) > self.min_delta:
             self.counter += 1
-            if self.counter >= self.tolerance:  self.early_stop = True
+            if self.counter >= self.tolerance:
+                self.early_stop = True
         else:
             self.counter = 0
 
@@ -43,14 +44,3 @@ def enable_dropout(model):
 @retry(stop=stop_after_attempt(50), wait=wait_fixed(1))
 def featurize_with_retry(featurizer, mol):
     return featurizer._featurize(mol)
-
-
-def nomi_file_in_cartella(cartella):
-    # Verifica se la cartella esiste
-    if not os.path.isdir(cartella):
-        print(f"La cartella {cartella} non esiste.")
-        return ()
-
-    nomi_file = os.listdir(cartella)
-    tupla_nomi_file = tuple(nomi_file)
-    return tupla_nomi_file

@@ -7,6 +7,7 @@ from numpy.linalg import norm
 import math
 from Scripts.utils_model.utils_data_processing import convolve_with_lorentzian, rescale
 
+
 def count_matched_peaks(arr_a, arr_b, tolerance=6):
     count = 0
     for peak_a in arr_a:
@@ -248,7 +249,6 @@ def metrics_raman_peaks(result_df, prom=0, true='RAMAN_SPECTRUM', pred='raman_pr
     return result_df
 
 
-
 def metrics_spectra(result_df, conv, leng, true_col='RAMAN_SPECTRUM_CONV', pred_col='raman_pred_conv'):
     result_df['sis'] = result_df.apply(lambda row: spectral_information_similarity(pd.array(row[true_col]),
                                                                                    pd.array(row[pred_col]), conv,
@@ -259,14 +259,3 @@ def metrics_spectra(result_df, conv, leng, true_col='RAMAN_SPECTRUM_CONV', pred_
     result_df['cos_sim'] = result_df.apply(lambda row: calc_cos_sim(row[pred_col], row[true_col]), axis=1)
     result_df['MAE'] = result_df.apply(lambda row: np.mean(np.abs(row[pred_col] - row[true_col])), axis=1)
     return result_df
-
-
-def excel_data_raman(result_df):
-    excel = [result_df['precision_10cm^-1'].mean(), result_df['precision_15cm^-1'].mean(), result_df['precision_20cm^-1'].mean(),
-            result_df['recall_10cm^-1'].mean(), result_df['recall_15cm^-1'].mean(), result_df['recall_20cm^-1'].mean(),
-            result_df['fnr_10cm^-1'].mean(), result_df['fnr_15cm^-1'].mean(), result_df['fnr_20cm^-1'].mean(),
-            result_df['F1_10cm^-1'].mean(), result_df['F1_15cm^-1'].mean(), result_df['F1_20cm^-1'].mean(),
-            result_df['sis'].mean(), result_df['cos_sim'].mean(),
-            result_df['MAE'].mean(), result_df['RMSE'].mean(), result_df['R2'].mean()]
-    return excel
-
