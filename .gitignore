@@ -1,0 +1,7 @@
+# Exclude data, models, and __pycache__ directories
+data/
+models/
+__pycache__/
+log_dir/
+ai_chemistry_venv
+/scratch_1.py
