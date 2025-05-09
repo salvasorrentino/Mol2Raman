@@ -1,7 +1,7 @@
 {
   "model": "ModelPredNumPeak",
   "dir_name": "pred_num_peak_up",
-  "target_col": "PRED_NUM_PEAK_UP",
+  "target_col": "RAMAN_PEAK_NUM_UP",
   "type_pred": "pred_num_peak_up",
   "starting_dtf": "dtf_data_smile_no_dup_no_conv",
   "featurizer": "MolGraphConv",

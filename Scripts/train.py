@@ -242,6 +242,8 @@ if __name__ == '__main__':
 
     import json
 
+    # use the split.py script to split the dataset, add the target information and save it in the data folder
+
     with open(r"config/config_model.json") as file:
         config_model = json.load(file)
     with open(r"config/config_no_conv_inter_6_up.json") as file:
