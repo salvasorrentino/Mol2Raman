@@ -32,9 +32,9 @@
     "loss": {
       "name": "WeightedRMSELoss",
       "params": {
-        "Wtp": 15,
-        "Wfp": 3,
-        "Wfn": 8,
+        "Wtp": 8,
+        "Wfp": 6,
+        "Wfn": 5,
         "Wtn": 1,
         "Ts": 0.5
       }
