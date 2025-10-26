@@ -1,4 +1,5 @@
 ﻿Version: v1.0-paper
-Commit: faea347c5b11bd9ee14a32056571b66691f4f8ac
-Date: 2025-08-17
+Commit: fd7b4c8
+Date: 2025-10-25
 Description: Version used for manuscript submission of the paper "Mol2Raman: a graph neural network model for predicting Raman spectra from SMILES representations"
+
